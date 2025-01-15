@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Book</title>
+</head>
+<body>
+    <h1>Return Book</h1>
+    <p>Are you sure you want to return the book "{{ book.title }}"?</p>
+    <form action="{% url 'return_book' book.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Return Book">
+    </form>
+</body>
+</html>

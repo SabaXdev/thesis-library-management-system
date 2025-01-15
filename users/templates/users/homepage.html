@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="homepage">
+  <div class="quote-section">
+    <div class="quote">"There is more treasure in books than in all the pirate's loot on Treasure Island."</div>
+    <div class="author">- Walt Disney</div>
+  </div>
+
+  <div class="new-arrivals">
+    <h2>New Arrivals</h2>
+    <div class="book-carousel swiper">
+      <div class="swiper-wrapper">
+        {% for book in books|slice:":15" %}
+        <div class="swiper-slide homepage-book-item">
+          <a href="{% url 'book_flow:book_detail' book.pk %}">
+            <img src="{{ book.image_url }}" alt="{{ book.title }} cover">
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Optional navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+  </div>
+
+  <div class="recommended-section">
+    <div class="homepage-section-header">
+      <h2>Recommended for You</h2>
+      <a href="{% url 'book_flow:book_search' %}" class="show-all-button">Show All</a>
+    </div>
+    <div class="homepage-book-list">
+      {% for book in books|slice:":9" %}
+      <div class="homepage-book-item">
+        <a href="{% url 'book_flow:book_detail' book.pk %}">
+          <img src="{{ book.image_url }}" alt="{{ book.title }} cover">
+        </a>
+        <div class="homepage-book-title">{{ book.title }}</div>
+        <div class="homepage-book-author-publishedYear">{{ book.author }}, {{ book.published_date|date:"Y" }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="recent-readings">
+    <div class="homepage-section-header">
+      <h2>Recent Readings</h2>
+      <a href="{% url 'book_flow:book_search' %}" class="show-all-button">Show All</a>
+    </div>
+    <div class="homepage-book-list">
+      {% for book in books|slice:":9" %}
+      <div class="homepage-book-item">
+        <a href="{% url 'book_flow:book_detail' book.pk %}">
+          <img src="{{ book.image_url }}" alt="{{ book.title }} cover">
+        </a>
+        <div class="homepage-book-title">{{ book.title }}</div>
+        <div class="homepage-book-author-publishedYear">{{ book.author }}, {{ book.published_date|date:"Y" }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

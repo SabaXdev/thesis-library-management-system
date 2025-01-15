@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}My Issued Books{% endblock %}
+
+{% block content %}
+    <div class="profile">
+        <h2>Account Setting</h2>
+        <div class="user-icon">
+            <span class="icon">👤</span>
+            <span class="edit-icon">✏️</span>
+        </div>
+        <form method="POST" class="profile-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+<!--            <div class="form-group">-->
+<!--                <label for="full_name">Full name</label>-->
+<!--                <input type="text" id="full_name" name="full_name" value="{{ user.full_name }}" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="email">College Email ID</label>-->
+<!--                <input type="email" id="email" name="email" value="{{ user.email }}" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="username">Username</label>-->
+<!--                <input type="text" id="username" name="username" value="{{ user.username }}" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="personal_number">Phone number</label>-->
+<!--                <input type="tel" id="personal_number" name="personal_number" value="{{ user.personal_number }}" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="is_librarian">Is_librarian</label>-->
+<!--                <textarea id="is_librarian" name="is_librarian">{{ user.is_librarian }}</textarea>-->
+<!--            </div>-->
+            <div class="form-buttons">
+                <button type="submit" class="update-btn">Update Profile</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

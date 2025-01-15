@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+<div class="book-list-container">
+    <header class="book-list-header">
+        <h1>Books</h1>
+    </header>
+
+    {% if books %}
+        <ul class="book-list">
+            {% for book in books %}
+                <li class="book-item">
+                    {% if book.image_url %}
+                        <a href="{% url 'book_flow:book_detail' book.pk %}" class="book-link">
+                            <img src="{{ book.image_url }}" alt="{{ book.title }} cover" class="book-cover">
+                        </a>
+                    {% else %}
+                        <div class="book-placeholder">No Cover</div>
+                    {% endif %}
+                    <div class="book-info">
+                        <a href="{% url 'book_flow:book_detail' book.pk %}" class="book-title">{{ book.title }}</a>
+                        <p class="book-author">by {{ book.author.name }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-books-message">No books are available at the moment.</p>
+    {% endif %}
+
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+        <!-- Pagination Links -->
+        <div class="pagination">
+          <span class="step-links">
+            {% if books.has_previous %}
+              <a href="?page=1{% if request.GET.genre %}&genre={{ request.GET.genre }}{% endif %}">&laquo; first</a>
+              <a href="?page={{ books.previous_page_number }}{% if request.GET.genre %}&genre={{ request.GET.genre }}{% endif %}">previous</a>
+            {% endif %}
+
+            <span class="current">
+              Page {{ books.number }} of {{ books.paginator.num_pages }}.
+            </span>
+
+            {% if books.has_next %}
+              <a href="?page={{ books.next_page_number }}{% if request.GET.genre %}&genre={{ request.GET.genre }}{% endif %}">next</a>
+              <a href="?page={{ books.paginator.num_pages }}{% if request.GET.genre %}&genre={{ request.GET.genre }}{% endif %}">last &raquo;</a>
+            {% endif %}
+          </span>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

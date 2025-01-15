@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="shelf-container">
+    <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="favorites">Favorites</button>
+        <button class="tab-btn" data-tab="borrowed-books">Borrowed Books</button>
+    </div>
+
+    <!-- Favorites Section -->
+    <section id="favorites" class="tab-content active">
+        <h1>Favorites</h1>
+        {% if favorite_books %}
+        <div class="book-grid">
+            {% for book in favorite_books %}
+            <div class="book-card">
+                {% if book.book.image_url %}
+                <a href="{% url 'book_flow:book_detail' book.book.pk %}">
+                    <img src="{{ book.book.image_url }}" alt="{{ book.book.title }} cover" class="book-image">
+                </a>
+                {% endif %}
+                <div class="book-info">
+                    <h3>{{ book.book.title }}</h3>
+                    <p class="author-name">{{ book.book.author.name }}</p>
+                    <p class="published-date">{{ book.book.published_date }}</p>
+                    <button class="remove-favorite-btn" data-book-id="{{ book.book.id }}">Remove from Favorites</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="no-data">You haven't added any favorites yet.</p>
+        {% endif %}
+    </section>
+
+    <!-- Borrowed Books Section -->
+    <section id="borrowed-books" class="tab-content">
+        <h1>Borrowed Books</h1>
+        {% if borrowed_books %}
+        <div class="book-grid">
+            {% for book in borrowed_books %}
+            <div class="book-card">
+                {% if book.book.image_url %}
+                <a href="{% url 'book_flow:book_detail' book.book.pk %}">
+                    <img src="{{ book.book.image_url }}" alt="{{ book.book.title }} cover" class="book-image">
+                </a>
+                {% endif %}
+                <div class="book-info">
+                    <h3>{{ book.book.title }}</h3>
+                    <p class="author-name">{{ book.book.author.name }}</p>
+                    <p class="published-date">{{ book.book.published_date }}</p>
+                    <div class="borrow-dates">
+                        <p><strong>Borrowed on:</strong> {{ book.borrow_date|date:"M. d, Y" }}</p>
+                        <p><strong>Due date:</strong> {{ book.due_date|date:"M. d, Y" }}</p>
+                    </div>
+
+                    {% if not book.returned %}
+                    <form method="post" action="{% url 'book_flow:return_book' book.book.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="return-btn">Return</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="no-data">You haven't borrowed any books yet.</p>
+        {% endif %}
+    </section>
+</div>
+
+<script src="script.js"></script>
+
+{% endblock %}

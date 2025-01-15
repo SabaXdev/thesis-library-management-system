@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="form-card">
+          <h1 class="brand-name">
+            <span>My</span> <span class="highlight">Book</span> Shelf
+          </h1>
+          <h2 class="form-title">Registration</h2>
+          <p class="form-subtitle">For Both Staff & Students</p>
+
+          <form method="POST" class="registration-form" >
+              {% csrf_token %}
+              <label for="email"> {{ form.email.label_tag }}</label>
+              {{ form.email }}
+
+              <label for="full_name"> {{ form.full_name.label_tag }} </label>
+              {{ form.full_name }}
+
+              <label for="personal_number"> {{ form.personal_number.label_tag }} </label>
+              {{ form.personal_number }}
+
+              <label for="password1"> {{ form.password1.label_tag }} </label>
+              {{ form.password1 }}
+
+              <label for="password2"> {{ form.password2.label_tag }} </label>
+              {{ form.password2 }}
+
+            <button type="submit" class="btn">Register</button>
+          </form>
+
+          <p class="form-footer">
+            Already a User? <a href="{% url 'users:login' %}">Login now</a>
+          </p>
+        </div>
+    </div>
+
+    {% endblock %}
+
+
+</body>
+</html>
+
+

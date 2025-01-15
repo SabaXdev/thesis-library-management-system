@@ -1,0 +1,181 @@
+.issue-container {
+    font-family: 'Inter', sans-serif; /* Change to your desired font */
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-header h3 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Vertically center the label and input */
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    margin-right: 20px; /* Add space between label and input */
+    flex-shrink: 0; /* Prevent the label from shrinking */
+
+    width: 70px;
+    text-align: left;
+
+}
+
+.form-group .input-row {
+    display: flex; /* Arrange inputs in a row */
+    flex-direction: row;
+    width: 100%;
+}
+
+.form-group select {
+    width: 150px; /* Makes input take up full width of the container */
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 500px;   /* Set a maximum width to ensure a consistent size */
+    box-sizing: border-box;
+}
+
+.form-group input,
+.form-group textarea {
+    margin-top: 10px;
+    margin-left: 70px;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: auto;        /* Ensures the width matches the container */
+    max-width: 400px;   /* Set a maximum width to ensure a consistent size */
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
+
+
+.styled-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.styled-form label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.styled-form .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.styled-form .form-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.styled-form .form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    min-height: 100px;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.styled-form .form-textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-primary {
+    display: block;
+    margin: 20px auto 0; /* Centers the button horizontally */
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.success-message {
+    text-align: center;
+    background: #e6ffe6;
+    padding: 1.5rem;
+    border: 1px solid #c3e6c3;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.success-message h3 {
+    color: #2d862d;
+}
+
+.success-message a {
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none; /* Removes the underline */
+}
+
+a.btn-primary {
+    text-decoration: none; /* Ensures the underline is removed from buttons as well */
+}
+
+.alert.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}

@@ -1,0 +1,162 @@
+/*  Homepage    */
+.homepage {
+  font-family: Arial, sans-serif;
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 10px; /* Add padding around the content */
+}
+
+.quote-section {
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #1f1f1f; /* Slightly lighter than the main background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  font-size: 1.1em; /* Slightly larger text for emphasis */
+  line-height: 1.6; /* Improved readability */
+  border: 1px solid #2a2a2a; /* Optional subtle border for definition */
+}
+
+/* Add subtle emphasis to quotes */
+.quote-section::before {
+  font-size: 3em;
+  color: #ffae42; /* Warm accent color */
+  position: relative;
+  top: 10px;
+  left: -5px;
+}
+
+.quote-section::after {
+  font-size: 3em;
+  color: #ffae42; /* Same accent color */
+  position: relative;
+  top: 10px;
+  right: -5px;
+}
+
+
+
+.quote {
+  font-size: 1.5em;
+  font-style: italic;
+  color: #B3B3B3;
+}
+
+.author {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #9E9E9E;
+}
+
+.new-arrivals, .recommended-section, .recent-readings {
+  margin-bottom: 30px;
+}
+
+.homepage-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.show-all-button {
+  text-decoration: none;
+  color: white;
+  background-color: #5da93c;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.show-all-button:hover {
+  background-color: #468c28;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+
+
+.book-carousel, .homepage-book-list {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.book-carousel .homepage-book-item {
+  text-align: center;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid #9E9E9E;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.book-carousel .homepage-book-item img {
+  max-width: 200px;
+  width: 120px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.book-carousel .homepage-book-item img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #e0e0e0; /* Arrow color */
+  transition: color 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #ffae42; /* Accent color on hover */
+}
+
+
+.homepage-book-item {
+  text-align: center;
+  width: 150px;
+  background-color: #f0f0f0;  /* Set a light background color different from the page background */
+  padding: 4px;              /* Add padding around the content to make it more spacious */
+  border-radius: 8px;         /* Optional: Add rounded corners for a smoother look */
+  transition: background-color 0.3s ease;  /* Optional: Add a smooth transition when hovering */
+}
+
+.homepage-book-item:hover {
+  background-color: #ff6a00;
+  color: black;
+}
+
+.homepage-book-item img {
+  width: 120px;                 /* Set a fixed width (adjust as needed) */
+  height: 200px;                /* Set a fixed height (adjust as needed) */
+  object-fit: cover;            /* Ensures images cover the container while maintaining aspect ratio */
+  border-radius: 8px;           /* Optional: Add rounded corners to the images */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional: Add shadow to images for a nicer effect */
+}
+
+.homepage-book-title {
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;  /* Adjust the width to fit your design */
+}
+
+.homepage-book-author-publishedYear {
+  font-size: 0.8em;
+  color: #777;
+}

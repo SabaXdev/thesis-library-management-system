@@ -1,0 +1,51 @@
+/* Book List Container */
+.book-list-container {
+    border: 2px, solid, red;
+    margin: 0 auto;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 auto; /* Center the list horizontally */
+  max-width: 900px; /* Adjust as needed */
+  padding: 0;
+}
+
+/* Individual Book Items */
+.book-item {
+  width: 22%; /* Adjust for desired number of columns per row */
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px; /* Rounded corners */
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: all 0.2s ease-in-out; /* Smooth hover effects */
+}
+
+/* Book Item on Hover */
+.book-item:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Emphasize the shadow */
+}
+
+/* Book Image */
+.book-item img {
+  width: 100%; /* Fill the item width */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px;
+}
+
+/* Book Title */
+.book-item strong {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+/* Book Author */
+.book-item p {
+  font-size: 0.9em;
+  margin-bottom: 0;
+}

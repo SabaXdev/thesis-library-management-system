@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}OTP Verification{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/otp_verification.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="brand-name">MySite <span class="highlight">OTP</span></h1>
+        <p class="form-title">Verify Your Email</p>
+        <form method="POST" class="otp-form">
+            {% csrf_token %}
+            <input type="hidden" name="email" value="{{ email }}">
+
+            <!-- OTP Field -->
+            <label for="otp"> {{ form.otp.label_tag }}</label>
+            {{ form.otp }}
+            {% if form.otp.errors %}
+                <div class="error-messages">
+                    {% for error in form.otp.errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <button type="submit" class="btn">Verify</button>
+        </form>
+        <div class="form-footer">
+            <p><a href="{% url 'users:register' %}">Go back to registration</a></p>
+        </div>
+    </div>
+</body>
+</html>

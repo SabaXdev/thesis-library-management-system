@@ -1,0 +1,60 @@
+/* General Page Background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: grey;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+/* Success Message Container */
+.success-message {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Success Icon */
+.success-message svg {
+  margin-bottom: 20px;
+}
+
+/* Success Title */
+.success-message h1 {
+  font-size: 24px;
+  color: green;
+  margin-bottom: 20px;
+}
+
+/* Success Description */
+.success-message p {
+  font-size: 16px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+/* Button Styling */
+.btn-success {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background: #e65a50;
+}
+
+.a {
+  text-decoration: none; /* Removes the underline */
+}

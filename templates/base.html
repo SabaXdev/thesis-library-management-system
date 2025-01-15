@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block base %}Base HTML{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/books/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/books/book_detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/books/book_list.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/books/book_search.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/books/book_issue.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/books/book_statistics.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/users/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/users/my_shelf.css' %}">
+    <!-- Swiper CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="{% url 'users:home' %}">
+                <div class="logo">
+                    My <span>Book</span> Shelf
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="{% url 'users:home' %}">Home</a></li>
+                    <li><a href="{% url 'book_flow:book_search' %}">Search</a></li>
+                    <li><a href="{% url 'users:my_shelf' %}">My Shelf</a></li>
+                    <li><a href="{% url 'book_flow:book-statistics' %}">Stats</a></li>
+                </ul>
+            </nav>
+            <footer class="footer-links">
+                <a href="/about">About</a>
+                <a href="/support">Support</a>
+                <a href="/terms">Terms & Conditions</a>
+            </footer>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-bar">
+                    <form method="GET" action="{% url 'book_flow:book_search' %}" class="search-form">
+                        <input
+                                type="text"
+                                id="search-input"
+                                name="query"
+                                placeholder="Search by Title, Author, Keyword or ISBN"
+                                aria-label="Search Books"
+                                autocomplete="off"
+                        >
+                        <button type="submit">Search</button>
+                    </form>
+                    <div id="suggestions-container" class="suggestions">
+                        <!-- Suggestions will appear here -->
+                    </div>
+                </div>
+                <div class="header-controls">
+                    <div class="datetime-container">
+                        <div id="current-date">
+                            <span class="calendar-icon">📅</span>
+                            <span id="date-text"></span>
+                        </div>
+                        <div id="current-time">
+                            <span class="clock-icon">⏰</span>
+                            <span id="time-text"></span>
+                        </div>
+                    </div>
+                    <nav>
+                        {% if request.user.is_authenticated %}
+                            <div class="dropdown">
+                                <button class="dropdown-toggle" id="dropdownToggle" aria-expanded="false">
+                                    {{ request.user.full_name }}
+                                </button>
+                                <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                                    <a href="{% url 'users:profile' %}">Profile</a>
+                                    <a href="{% url 'users:my_shelf' %}">Favourites</a>
+                                    <a href="{% url 'users:logout' %}">Log out</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <a href="{% url 'users:register' %}">Sign up</a>
+                            <a href="{% url 'users:login' %}">Log in</a>
+                        {% endif %}
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Main Section -->
+            <main class="main-content">
+                {% block content %}
+                <!-- Dynamic content will be rendered here -->
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

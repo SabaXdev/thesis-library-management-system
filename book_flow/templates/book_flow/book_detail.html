@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Book Detail{% endblock %}
+
+{% block content %}
+<div class="book-detail-page">
+  <div class="back-to-results">
+    <a href="{% url 'book_flow:book_search' %}">← Back to results</a>
+  </div>
+
+  <div class="book-content">
+    <div class="book-header">
+      <div class="book-cover">
+        <img src="{{ book.image_url }}" alt="{{ book.title }} cover">
+      </div>
+      <div class="book-detail-info">
+        <div class="title-author">
+          <h1>{{ book.title }}</h1>
+          <h4>By {{ book.author.name }}</h4>
+        </div>
+        <div class="stats">
+          ⭐⭐⭐⭐⭐ {{ rating }} Ratings
+          <span style="padding: 0 5px;">{{ book.stock }} Stock</span>
+          <span style="padding: 0 5px;">{{ book.total_borrowed }} Total Borrowed</span>
+          <span style="padding: 0 5px;">{{ book.currently_borrowed }} Currently Borrowed</span>
+        </div>
+        <div class="action-buttons">
+<!--          <button class="borrow-button">Borrow</button>-->
+          <a href="{% url 'book_flow:issue_book' book.id %}" class="borrow-button">Borrow</a>
+          <button class="heart-btn" data-book-id="{{ book.id }}">Add to Favorites</button>
+        </div>
+        <!-- Moved book-details here -->
+        <div class="book-details">
+          <h3>Book Details</h3>
+          <ul>
+            <li>
+              <span class="detail-label">Publish Date</span>
+              <span class="detail-value">{{ book.published_date }}</span>
+            </li>
+            <li>
+              <span class="detail-label">Publisher</span>
+              <span class="detail-value">{{ book.publisher }}</span>
+            </li>
+            <li>
+              <span class="detail-label">Pages</span>
+              <span class="detail-value">{{ book.pages }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="online-bookstores">
+        <h3>Buy This Book Online</h3>
+        <div class="bookstores-list">
+          <a href="https://www.amazon.com" class="bookstore-link" target="_blank">
+            <img src="{% static 'images/amazon-logo.jpg' %}" alt="Amazon Logo">
+            <p>Amazon</p>
+          </a>
+          <a href="https://www.barnesandnoble.com" class="bookstore-link" target="_blank">
+            <img src="{% static 'images/barnes-and-noble-logo.png' %}" alt="Barnes & Noble Logo">
+            <p>Barnes & Noble</p>
+          </a>
+          <a href="https://www.bookdepository.com" class="bookstore-link" target="_blank">
+            <img src="{% static 'images/book-depository-logo.jpg' %}" alt="Book Depository Logo">
+            <p>Book Depository</p>
+          </a>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="about-book">
+      <div class="book-title-section">
+        <h3>About the Book</h3>
+        <h4>{{ book.title }}</h4>
+      </div>
+      <p>{{ book.description }}</p>
+      {% if other_books %}
+        <h4>Other Books</h4>
+        <div class="other-books">
+          {% for other_book in other_books|slice:4 %}
+            <a href="{% url 'book_flow:book_detail' other_book.pk %}">
+              <img src="{{ other_book.image_url }}" alt="{{ other_book.title }} cover">
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+
+
+
+</div>
+{% endblock %}

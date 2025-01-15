@@ -1,0 +1,444 @@
+/* Base html */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrolling of the entire container */
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #222;
+    color: #fff;
+    width: 250px;
+
+    position: fixed; /* Fix sidebar to prevent it from scrolling */
+    top: 0;
+    left: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        border: 2px solid black;
+        z-index: 1000; /* Ensures sidebar stays above other content */
+
+}
+
+.sidebar .logo {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #e5e5e5;
+}
+
+.sidebar .logo span {
+    color: #f27851;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    margin-bottom: 1.25rem;
+}
+
+.nav-list li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.nav-list li a:hover {
+    background: #444;
+    transform: translateX(5px);
+}
+
+.footer-links {
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #ccc;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    background-color: #171717;
+    flex-grow: 1;
+
+    margin-left: 250px;
+
+
+    width: calc(100% - 250px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+        overflow-y: auto; /* Allows scrolling within the content wrapper */
+        height: 100vh; /* Full height for the content area */
+
+}
+
+/* Header */
+.header {
+    background-color: #1d1d1d;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;              /* sticky new */
+    top: 0;
+        width: calc(100% - 20px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        z-index: 999; /* Keeps the header above main content */
+
+        height: 80px; /* Fixed height for the header          new */
+        flex-shrink: 0; /* Prevent header from shrinking         new */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    background: #171717;
+    border: 2px solid #333;
+    border-radius: 20px;
+    width: 700px;
+    max-width: 700px;
+
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    color: white;
+
+    width: 500px;          /*Late added */
+    max-width: 600px;
+
+    flex-grow: 1;
+    font-size: 1rem;
+    background: transparent;
+}
+
+.search-bar button {
+    background: #5da93c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: 70px;  /*Late added */
+
+    font-size: 18px;
+}
+
+.search-bar button:hover {
+    background: #468c28;
+}
+
+.suggestions {
+    border: 1px solid #2f2f2f;
+    top: 80px;
+    border-top: none;
+    max-height: 400px;
+    position: fixed;
+    width: 695px;
+    background: white;
+    position: absolute;
+    left: 20px;
+}
+
+.suggestions-list {
+    list-style: none;
+    background: #1d1d1d;
+    margin: 0;
+    padding: 0;
+}
+
+.suggestion-item {
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-item a {
+    color: #fff;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2f2f2f;
+    cursor: pointer;
+}
+.suggestion-item a img {
+    width: 80px;
+    height: 110px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+.suggestion-item:hover {
+    background-color: #333333;
+}
+
+.suggestion-info {
+    flex-grow: 1;
+}
+
+.suggestion-info strong {
+    font-weight: 700;
+}
+.suggestion-info small {
+    color: #919191;
+}
+
+
+
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.datetime-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem; /* Space between date and time */
+    padding: 1rem;
+
+
+    background: #171717;
+    border: 2px solid #333;
+
+    border-radius: 20px; /* Rounded corners */
+    font-family: Arial, sans-serif; /* Clean font */
+    font-size: 1rem;
+    color: white; /* Neutral text color */
+    margin: 1rem auto; /* Centered margin */
+    margin-right: 30px;
+    max-width: 1000px; /* Restrict width */
+    width: 400px; /* Responsive behavior */
+    height: 60px;
+}
+
+.datetime-container div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+}
+
+.calendar-icon,
+.clock-icon {
+    font-size: 1.2rem; /* Adjust size of the icons */
+    color: #555; /* Slightly darker color for icons */
+}
+
+#current-date,
+#current-time {
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background: #5da93c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    font-size: 18px;
+}
+
+.dropdown-toggle:hover {
+    background: #468c28;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.875rem;
+}
+
+.dropdown-menu a:hover {
+    background: #f5f5f5;
+}
+
+/* Main Content */
+.main-content {
+    background-color: #171717;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    margin: 1rem auto;
+
+        width: calc(100% - 20px);
+
+        flex-grow: 1;
+        position: relative;
+
+        overflow-y: scroll;
+        scrollbar-width: none;
+
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        margin-left: 0;
+        padding: 15px;
+    }
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .dropdown-menu {
+        width: 100%;
+    }
+}
+
+
+
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+  padding: 30px 0;
+}
+
+.pagination-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.pagination-list li {
+  float: left;
+  margin-right: 10px;
+}
+
+.pagination-list li a {
+  border-radius: 40px;
+  width: 45px;
+  height: 45px;
+  background: #242731;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+.pagination-list li.current-page a {
+  background: #ff6a00;
+  border: 1px solid #ddd;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.pagination a:hover {
+  background-color: #ff6a00;
+}
+
+/* --------------- End Base.html ---------------  */
+
+
+
+
+.about-author,
+.book-details {
+  margin-bottom: 30px;
+}
+
+
+/* Base styles for the list */
+.issued-books-list {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.issued-book {
+  display: flex; /* Arrange items in a row */
+  justify-content: space-between; /* Distribute items evenly */
+  margin-bottom: 1rem; /* Add some spacing between list items */
+  padding: 0.5rem 1rem; /* Add padding for readability */
+  border-radius: 5px; /* Add subtle rounded corners */
+  background-color: #f5f5f5; /* Light background color */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  border: 5px solid #252727;
+}
+
+/* Title style */
+.issued-books-title {
+  font-weight: bold;
+  margin-bottom: 1rem; /* Add space after title */
+  text-align: center; /* Center align the title */
+}
+
+/* Style for returned/borrowed indication */
+.borrowed {
+  background-color: #ffebeb; /* Light red for borrowed books */
+}
+

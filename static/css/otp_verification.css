@@ -1,0 +1,130 @@
+/* General Page Background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: grey;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+/* Form Card */
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Brand Name */
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Highlight Text in Brand Name */
+.brand-name .highlight {
+  color: #ff6f61;
+}
+
+/* Form Title */
+.form-title {
+  font-size: 18px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+/* Form Subtitle */
+.form-subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* OTP Form Layout */
+.otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.error-messages {
+    color: #d9534f; /* Bootstrap danger color */
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.error {
+    color: #d9534f;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Label Styling */
+.otp-form label {
+  font-weight: bold;
+  text-align: left;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+/* Input Fields */
+.otp-form input[type="text"] {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* Focused Input Fields */
+.otp-form input:focus {
+  outline: none;
+  border-color: #ff6f61;
+}
+
+/* Submit Button */
+.btn {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background: #464646;;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #333333;
+}
+
+/* Footer Text and Links */
+.form-footer {
+  margin-top: 15px;
+  font-size: 14px;
+  color: gray;
+}
+
+.form-footer a {
+  color: #ff6f61;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}

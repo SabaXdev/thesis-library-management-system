@@ -1,0 +1,170 @@
+/* General styling */
+.shelf-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    background: #ff6a00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: #a34400;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff6a00;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.book-card {
+    background: #292929;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 200px;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Distribute elements evenly */
+    align-items: center; /* Center align items */
+    padding: 15px;
+    margin: 0 auto;
+    background: #2e2e2e;
+    border-radius: 5px;
+    width: 100%; /* Ensures a consistent width */
+    height: auto; /* Fixed height to prevent overflow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.book-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6a00;
+    margin: 0 0 8px;
+    text-overflow: ellipsis; /* Truncate long text */
+    overflow: hidden;
+    white-space: nowrap; /* Ensure text stays on one line */
+    width: 100%; /* Limit the width to control text layout */
+}
+
+.author-name {
+    font-size: 14px;
+    color: #2c3e50; /* Dark blue */
+    font-weight: bold;
+    font-style: italic;
+}
+
+.book-info p {
+    font-size: 13px;
+    margin: 4px 0;
+    color: #ccc;
+    text-overflow: ellipsis; /* Truncate long text */
+    overflow: hidden;
+    white-space: nowrap; /* Prevent text wrapping */
+    width: 90%;
+}
+
+
+.book-info button {
+    background: #ff6a00;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 8px; /* Add spacing above buttons */
+    width: 200px; /* Ensure consistent button size */
+    text-align: center;
+}
+
+.book-info button:hover {
+    background: #cc5602;
+}
+
+/* Borrow Dates Section Styling */
+.borrow-dates {
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack the items vertically */
+    justify-content: center; /* Center the items */
+    align-items: center; /* Align text to the center */
+    background: linear-gradient(135deg, #444, #666); /* Gradient background for contrast */
+    padding: 10px;
+    margin-top: 10px; /* Space above the borrow dates section */
+    border: 1px solid #ff6a00; /* Add an orange border */
+    border-radius: 5px; /* Match the book-info border radius */
+    width: 100%; /* Full width of the parent */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    color: #fff; /* Light text for contrast */
+    text-align: justify; /* Justify the text */
+}
+
+.borrow-dates p {
+    font-size: 12px; /* Smaller text size to fit well */
+    margin: 5px 0; /* Add space between lines */
+    width: 100%; /* Keep text inside the container */
+    line-height: 1.6; /* Better readability */
+}
+
+.borrow-dates strong {
+    color: #ff6a00; /* Highlight the labels in orange */
+    font-weight: bold; /* Make labels bold */
+}
+
+
+
+.no-data {
+    text-align: center;
+    color: #aaa;
+    margin: 20px 0;
+}

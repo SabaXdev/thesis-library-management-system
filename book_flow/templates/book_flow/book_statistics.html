@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Statistics{% endblock %}
+
+{% block content %}
+<div class="statistics-container">
+    <h1>Book Statistics</h1>
+
+    <!-- Most Borrowed Books -->
+    <section>
+        <h2>Top 10 Most Borrowed Books</h2>
+        {% if most_borrowed_books %}
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Total Borrowed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in most_borrowed_books %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author_name }}</td>
+                        <td>{{ book.total_borrowed }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </section>
+
+    <!-- Books Borrowed in the Last Year -->
+    <section>
+        <h2>Books Borrowed in the Last Year</h2>
+        {% if book_issue_count %}
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Issues in Last Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in book_issue_count %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author_name }}</td>
+                        <td>{{ book.issue_count }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </section>
+
+    <!-- Top Late Returned Books -->
+    <section>
+        <h2>Top 10 Late Returned Books</h2>
+        {% if top_late_returned_books %}
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Late Returns</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in top_late_returned_books %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author_name }}</td>
+                        <td>{{ book.late_returns }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </section>
+
+    <!-- Top Users with Late Returns -->
+    <section>
+        <h2>Top 10 Users with Late Returns</h2>
+        {% if top_late_return_users %}
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Late Returns</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in top_late_return_users %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ user.full_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.late_returns }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

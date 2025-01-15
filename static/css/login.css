@@ -1,0 +1,138 @@
+/* General Page Background */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Change to your desired font */
+  background-color: #171717;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+/* Form Card */
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 15px;
+  padding: 30px; /* Added padding inside the form card */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Brand Name */
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Highlight Text in Brand Name */
+.brand-name .highlight {
+  color: #ff6f61;
+}
+
+/* Form Title */
+.form-title {
+  font-size: 18px;
+  margin: 5px 0;
+  text-align: center; /* Centered the title */
+}
+
+/* Form Subtitle */
+.form-subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 20px;
+  text-align: center; /* Centered the subtitle */
+}
+
+/* Registration Form Layout */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 0; /* Added padding for spacing inside the form */
+}
+
+/* Label Styling */
+.login-form label {
+  font-weight: bold;
+  text-align: left;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+/* Input Fields */
+.login-form input[type="email"],
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 5px
+}
+
+/* Focused Input Fields */
+.login-form input:focus {
+  outline: none;
+  border-color: #ff6f61;
+}
+
+.alert.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.text-danger {
+    color: #d9534f;
+}
+
+
+.form-check {
+    font-size: 1px; /* Adjust font size */
+    text-align: left; /* Align text to the left */
+    display: flex;
+    align-items: center;
+    gap: 3px; /* Add space between checkbox and label */
+}
+
+
+/* Submit Button */
+.btn {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background: #464646;;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #333333;
+}
+
+/* Footer Text and Links */
+.form-footer {
+  margin-top: 15px;
+  font-size: 14px;
+  color: gray;
+}
+
+.form-footer a {
+  color: #ff6f61;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
